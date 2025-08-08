@@ -9,8 +9,11 @@ public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
     private String author;
+
+    @Column(name = "is_read")  // ¡Mapeo explícito aquí!
     private boolean read;
 
     // Conversiones
@@ -31,13 +34,16 @@ public class BookEntity {
         return book;
     }
 
-    // Getters y Setters (mismos que en Book.java)
+    // Getters y Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
     public String getAuthor() { return author; }
     public void setAuthor(String author) { this.author = author; }
+
+    @Column(name = "is_read")  // También en el getter para JPA
     public boolean isRead() { return read; }
+
     public void setRead(boolean read) { this.read = read; }
 }

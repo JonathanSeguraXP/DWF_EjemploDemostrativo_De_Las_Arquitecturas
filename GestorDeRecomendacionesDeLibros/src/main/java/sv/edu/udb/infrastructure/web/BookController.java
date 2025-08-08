@@ -1,9 +1,9 @@
 package sv.edu.udb.infrastructure.web;
 
-import org.springframework.web.bind.annotation.*;
 import sv.edu.udb.core.domain.Book;
 import sv.edu.udb.core.service.BookService;
 import sv.edu.udb.infrastructure.web.dto.BookRequest;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
