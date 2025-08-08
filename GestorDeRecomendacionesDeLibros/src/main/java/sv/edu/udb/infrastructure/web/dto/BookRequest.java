@@ -4,7 +4,7 @@ public class BookRequest {
     private String title;
     private String author;
 
-    // Getters y Setters
+    // Getters y setters
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
     public String getAuthor() { return author; }

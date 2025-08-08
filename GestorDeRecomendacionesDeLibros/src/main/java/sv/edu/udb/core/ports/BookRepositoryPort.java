@@ -8,4 +8,5 @@ public interface BookRepositoryPort {
     Book save(Book book);
     List<Book> findAll();
     Optional<Book> findById(Long id);
+    void deleteById(Long id); //
 }

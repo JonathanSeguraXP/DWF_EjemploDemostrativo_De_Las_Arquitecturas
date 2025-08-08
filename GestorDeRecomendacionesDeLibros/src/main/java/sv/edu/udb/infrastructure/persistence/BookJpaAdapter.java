@@ -1,18 +1,20 @@
 package sv.edu.udb.infrastructure.persistence;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import sv.edu.udb.core.ports.BookRepositoryPort;
 import sv.edu.udb.core.domain.Book;
+import sv.edu.udb.infrastructure.persistence.BookEntity;
+import sv.edu.udb.infrastructure.persistence.repositories.JpaBookRepository;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
 public class BookJpaAdapter implements BookRepositoryPort {
-    private final JpaRepository<BookEntity, Long> jpaRepository;
+    private final JpaBookRepository jpaRepository;
 
-    public BookJpaAdapter(JpaRepository<BookEntity, Long> jpaRepository) {
+    public BookJpaAdapter(JpaBookRepository jpaRepository) {
         this.jpaRepository = jpaRepository;
     }
 
@@ -34,5 +36,10 @@ public class BookJpaAdapter implements BookRepositoryPort {
     public Optional<Book> findById(Long id) {
         return jpaRepository.findById(id)
                 .map(BookEntity::toDomain);
+    }
+
+    @Override
+    public void deleteById(Long id) {  // ¡Implementación del método faltante!
+        jpaRepository.deleteById(id);
     }
 }
